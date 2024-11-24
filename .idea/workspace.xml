@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47780ca4-c9e7-4c59-b4f0-763004315629" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/EspritMobile.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EspritMobile/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EspritMobile/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EspritMobile/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EspritMobile/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EspritMobile/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+    <list default="true" id="47780ca4-c9e7-4c59-b4f0-763004315629" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EspritMobile/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EspritMobile/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EspritMobile/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/EspritMobile/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "VictoryKasende"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/VictoryKasende/EspritMobile.git",
+    "accountId": "d11e9c60-e622-4f04-949f-749d4421b545"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -91,11 +94,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732474874021</updated>
-      <workItem from="1732474904537" duration="2330000" />
+      <workItem from="1732474904537" duration="4794000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1732480089815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732480089815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>
