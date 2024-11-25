@@ -35,12 +35,16 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 
 INSTALLED_APPS = [
     'jazzmin',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Apps
+    'InspiraApp',
 
     # Autres
     'corsheaders',
@@ -137,6 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+AUTH_USER_MODEL = 'InspiraApp.User'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -199,27 +205,33 @@ JAZZMIN_SETTINGS = {
     "show_sidebar": True,
     "navigation_expanded": True,
     "order_with_respect_to": [
-        "api",
-        "api.Post",
-        "api.Category",
-        "api.Comment",
-        "api.Bookmark",
-        "api.Notification",
+        "Inspiraapp",
+        "Inspiraapp.Citation",
+        "Inspiraapp.Thought",
+        "Inspiraapp.Paragraph",
+        "Inspiraapp.Category",
+        "Inspiraapp.Like",
+        "Inspiraapp.Favorite",
+        "Inspiraapp.About",
     ],
     "icons": {
+        # Icônes pour l'admin Django
         "admin.LogEntry": "fas fa-file",
 
+        # Authentification
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
 
-        "api.User": "fas fa-user",
-        "api.Profile": "fas fa-address-card",
-        "api.Post": "fas fa-th",
-        "api.Category": "fas fa-tag",
-        "api.Comment": "fas fa-envelope",
-        "api.Notification": "fas fa-bell",
-        "api.Bookmark": "fas fa-heart",
-
+        # Inspiraapp modèles
+        "Inspiraapp.User": "fas fa-user",
+        "Inspiraapp.Profile": "fas fa-address-card",
+        "Inspiraapp.Citation": "fas fa-quote-right",
+        "Inspiraapp.Thought": "fas fa-brain",
+        "Inspiraapp.Paragraph": "fas fa-paragraph",
+        "Inspiraapp.Category": "fas fa-tag",
+        "Inspiraapp.Like": "fas fa-thumbs-up",
+        "Inspiraapp.Favorite": "fas fa-heart",
+        "Inspiraapp.About": "fas fa-info-circle",
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-arrow-circle-right",
@@ -242,15 +254,15 @@ JAZZMIN_UI_TWEAKS = {
     "footer_small_text": False,
     "body_small_text": True,
     "brand_small_text": False,
-    "brand_colour": "navbar-indigo",
+    "brand_colour": "navbar-primary",
     "accent": "accent-olive",
-    "navbar": "navbar-indigo navbar-dark",
+    "navbar": "navbar-primary navbar-dark",
     "no_navbar_border": False,
     "navbar_fixed": False,
     "layout_boxed": False,
     "footer_fixed": False,
     "sidebar_fixed": False,
-    "sidebar": "sidebar-dark-indigo",
+    "sidebar": "sidebar-light-primary",
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
     "sidebar_nav_child_indent": False,
@@ -266,5 +278,6 @@ JAZZMIN_UI_TWEAKS = {
         "warning": "btn-warning",
         "danger": "btn-danger",
         "success": "btn-success"
-    }
+    },
+    "actions_sticky_top": False
 }

@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -37,8 +37,8 @@ schema_view = get_schema_view(
 )
 urlpatterns = [
     path("", schema_view.with_ui('swagger', cache_timeout=0), name="schema-swagger-ui"),
-
     path('admin/', admin.site.urls),
+    path('api/v1/', include('InspiraApp.urls')),
 ]
 
 if settings.DEBUG:
