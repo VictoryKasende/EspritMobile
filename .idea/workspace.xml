@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="47780ca4-c9e7-4c59-b4f0-763004315629" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EspritMobile/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EspritMobile/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InspiraApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InspiraApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InspiraApp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/InspiraApp/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InspiraApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InspiraApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InspiraApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InspiraApp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="EspritMobile" type="Python.DjangoServer" factoryName="Django server">
       <module name="EspritMobile" />
@@ -92,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732474874021</updated>
       <workItem from="1732474904537" duration="8980000" />
-      <workItem from="1732535168458" duration="714000" />
+      <workItem from="1732535168458" duration="16038000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -118,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732535301395</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1732536191892</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732536191892</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

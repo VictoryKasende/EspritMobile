@@ -9,6 +9,8 @@ from shortuuid.django_fields import ShortUUIDField
 from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 import shortuuid
+from django.utils.timezone import now
+from datetime import timedelta
 
 class User(AbstractUser):
     id = ShortUUIDField(primary_key=True, default=shortuuid.uuid)
@@ -21,12 +23,21 @@ class User(AbstractUser):
     is_superuser = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
+    otp = models.CharField(max_length=7, blank=True, null=True)
+    otp_created_at = models.DateTimeField(blank=True, null=True)
+    reset_token = models.CharField(max_length=255, blank=True, null=True)
+
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
         return self.email
+    
+    def is_otp_valid(self):
+        if self.otp_created_at:
+            return now() < self.otp_created_at + timedelta(minutes=10)
+        return False
     
 
 class Profile(models.Model):
@@ -145,7 +156,7 @@ class Favorite(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = object_id = models.PositiveIntegerField()
+    object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey("content_type", "object_id")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
