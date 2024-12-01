@@ -105,6 +105,18 @@ class CategoryDetailSerializer(serializers.ModelSerializer):
         model = inspira_models.Category
         fields = ('id', 'name', 'slug', 'description', 'citations', 'thoughts', 'created_at', 'updated_at')
 
+""" class FavoriteCitationsAndThoughtsByCategorySerializer(serializers.ModelSerializer):
+    citations = CitationListSerializer(many=True, read_only=True)
+    thoughts = ThoughtListSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = inspira_models.Category
+        fields = ('id', 'name', 'slug', 'description', 'citations', 'thoughts', 'created_at', 'updated_at') """
+
+class AboutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = inspira_models.About
+        fields = ('id', 'title', 'description', 'image', 'created_at', 'updated_at')
 
 
     
