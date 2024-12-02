@@ -57,7 +57,6 @@ class MyTokenObtainPairView(TokenObtainPairView):
         return super().post(request, *args, **kwargs)
 
 
-
 class RegisterView(generics.CreateAPIView):
     """
     Vue pour enregistrer un utilisateur.
@@ -226,7 +225,6 @@ class PasswordEmailVerify(APIView):
         return Response({"message": "Password reset email sent."}, status=status.HTTP_200_OK)
 
     
-    
 class PasswordChangeView(APIView):
     permission_classes = [AllowAny]
 
@@ -270,7 +268,6 @@ class PasswordChangeView(APIView):
 
         return Response({"message": "Password changed successfully."}, status=status.HTTP_200_OK)
 
-
 # Inspirations
 
 class CategoryListView(generics.ListAPIView):
@@ -296,7 +293,6 @@ class CategoryListView(generics.ListAPIView):
         Récupère la liste des catégories.
         """
         return super().get(request, *args, **kwargs)
-
 
 class CategoryDetailView(generics.RetrieveAPIView):
     """
@@ -523,7 +519,17 @@ class LikeCitationView(GenericLikeFavoriteView):
         responses={
             201: openapi.Response(description="Citation likée avec succès."),
             400: openapi.Response(description="Vous avez déjà liké cette citation."),
-        }
+        },
+        
+        manual_parameters=[
+            openapi.Parameter(
+                'Authorization',  # Nom de l'en-tête
+                openapi.IN_HEADER,  # Indique que c'est un en-tête
+                description="Token JWT d'authentification",
+                type=openapi.TYPE_STRING,
+                required=True,  # Spécifie que l'en-tête est obligatoire
+            ),
+        ]
     )
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
@@ -540,7 +546,16 @@ class FavoriteCitationView(GenericLikeFavoriteView):
         responses={
             201: openapi.Response(description="Citation ajoutée aux favoris avec succès."),
             400: openapi.Response(description="Vous avez déjà ajouté cette citation aux favoris."),
-        }
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                'Authorization',  # Nom de l'en-tête
+                openapi.IN_HEADER,  # Indique que c'est un en-tête
+                description="Token JWT d'authentification",
+                type=openapi.TYPE_STRING,
+                required=True,  # Spécifie que l'en-tête est obligatoire
+            ),
+        ]
     )
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
@@ -557,7 +572,16 @@ class LikeThoughtView(GenericLikeFavoriteView):
         responses={
             201: openapi.Response(description="Pensée likée avec succès."),
             400: openapi.Response(description="Vous avez déjà liké cette pensée."),
-        }
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                'Authorization',  # Nom de l'en-tête
+                openapi.IN_HEADER,  # Indique que c'est un en-tête
+                description="Token JWT d'authentification",
+                type=openapi.TYPE_STRING,
+                required=True,  # Spécifie que l'en-tête est obligatoire
+            ),
+        ]
     )
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
@@ -574,7 +598,16 @@ class FavoriteThoughtView(GenericLikeFavoriteView):
         responses={
             201: openapi.Response(description="Pensée ajoutée aux favoris avec succès."),
             400: openapi.Response(description="Vous avez déjà ajouté cette pensée aux favoris."),
-        }
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                'Authorization',  # Nom de l'en-tête
+                openapi.IN_HEADER,  # Indique que c'est un en-tête
+                description="Token JWT d'authentification",
+                type=openapi.TYPE_STRING,
+                required=True,  # Spécifie que l'en-tête est obligatoire
+            ),
+        ]
     )
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
@@ -595,7 +628,8 @@ class FavoriteCitationListView(generics.ListAPIView):
                 schema=inspira_serializers.CitationListSerializer
             ),
             401: openapi.Response(description="Authentification requise.")
-        }
+        },
+
     )
 
     def get_queryset(self):
@@ -634,7 +668,6 @@ class FavoriteCitationListView(generics.ListAPIView):
 
         return Response(serializer.data)
 
-
 class FavoriteThoughtListView(generics.ListAPIView):
     """
     Vue pour lister les pensées favorites de l'utilisateur.
@@ -642,19 +675,10 @@ class FavoriteThoughtListView(generics.ListAPIView):
     serializer_class = inspira_serializers.ThoughtListSerializer
     permission_classes = [IsAuthenticated]
 
-    @swagger_auto_schema(
-        operation_summary="Liste des pensées favorites",
-        operation_description="Récupère toutes les pensées favorites de l'utilisateur connecté.",
-        responses={
-            200: openapi.Response(
-                description="Liste des pensées favorites récupérée avec succès",
-                schema=inspira_serializers.ThoughtListSerializer
-            ),
-            401: openapi.Response(description="Authentification requise.")
-        }
-    )
-
     def get_queryset(self):
+        """
+        Récupère les pensées favorites de l'utilisateur connecté.
+        """
         # Récupérer le type de contenu pour Thought
         thought_content_type = ContentType.objects.get_for_model(inspira_models.Thought)
 
@@ -666,21 +690,10 @@ class FavoriteThoughtListView(generics.ListAPIView):
 
         # Retourner les pensées favorites
         return inspira_models.Thought.objects.filter(id__in=favorite_thought_ids)
-    
-    @swagger_auto_schema(
-        operation_summary="Liste des pensées favorites",
-        operation_description="Récupère toutes les pensées favorites de l'utilisateur connecté.",
-        responses={
-            200: openapi.Response(
-                description="Liste des pensées favorites récupérée avec succès",
-                schema=inspira_serializers.ThoughtListSerializer
-            ),
-            401: openapi.Response(description="Authentification requise.")
-        }
-    )
+
     def list(self, request, *args, **kwargs):
         """
-        Récupère et renvoie les pensées favorites de l'utilisateur.
+        Sérialiser et renvoyer les pensées favorites de l'utilisateur.
         """
         # Obtenir les pensées favorites
         thoughts = self.get_queryset()
@@ -689,13 +702,13 @@ class FavoriteThoughtListView(generics.ListAPIView):
         serializer = inspira_serializers.ThoughtListSerializer(thoughts, many=True)
 
         return Response(serializer.data)
-    
 
 class FavoriteCitationsAndThoughtsByCategoryView(generics.ListAPIView):
     """
     Vue pour lister les citations et pensées favorites de l'utilisateur dans une catégorie donnée.
     """
     permission_classes = [IsAuthenticated]
+    serializer_class = inspira_serializers.CombinedCitationsAndThoughtsSerializer
 
     @swagger_auto_schema(
         operation_summary="Liste des citations et pensées favorites par catégorie",
